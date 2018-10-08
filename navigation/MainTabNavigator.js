@@ -35,13 +35,17 @@ const CustomDrawerContentComponent = (props) => (
 	</SafeAreaView>
   
 );
-const MenuButton = (obj) =>(
-	<View style={{backgroundColor:"#2874f0"}}>
-		<TouchableOpacity onPress={() => { obj.toggleDrawer() } }>
-			<Icon name="menu" style={{color: 'white', padding: 10, marginLeft:5, fontSize: 35}}/>
-		</TouchableOpacity>
-	</View>
-);
+class MenuButton extends React.Component{
+	render(){
+		return(
+			<View style={{backgroundColor:"#2874f0"}}>
+				<TouchableOpacity onPress={() => { this.props.obj.toggleDrawer() } }>
+					<Icon name="menu" style={{color: 'white', padding: 10, marginLeft:5, fontSize: 35}}/>
+				</TouchableOpacity>
+			</View>
+		);
+	}
+}
 const HeaderTitle = (<Text style={{color:"#fff",padding: 10, marginLeft:5, fontSize: 20 , fontWeight:"400"}}>SirG2</Text>);
 
 /* stack navigator */
@@ -57,7 +61,7 @@ const HomeScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: <MenuButton obj={this.props.navigation}  />,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -73,7 +77,7 @@ const LecturesScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -90,7 +94,7 @@ const NoticeScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -107,7 +111,7 @@ const AttendenceScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -123,7 +127,7 @@ const GradeScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -139,7 +143,7 @@ const NotesScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -155,7 +159,7 @@ const PaymentScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
@@ -172,7 +176,7 @@ const HolidayScreenStack = createStackNavigator(
 			headerStyle: {
 				backgroundColor: '#2874f0'
 			},
-			headerLeft: MenuButton,
+			headerLeft: <MenuButton obj={navigation}  />,
     }),
   }
 );
