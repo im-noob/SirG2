@@ -1,0 +1,27 @@
+import React, { Component } from "react";
+import { 
+    View,
+    Text,
+    StyleSheet
+} from "react-native";
+
+export default class NoticeScreen extends Component {
+    static navigationOptions = {
+        title: 'MyTest',
+      };
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>NoticeScreen</Text>
+            </View>
+        );
+    }
+}
+ 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});
