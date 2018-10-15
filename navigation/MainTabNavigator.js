@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet,Text,View,ScrollView,Image,TouchableOpacity } from 'react-native';
 import {createDrawerNavigator,DrawerItems, SafeAreaView,createStackNavigator,NavigationActions } from 'react-navigation';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
-import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import HomeScreen from '../screens/HomeScreen';
 import LecturesScreen from '../screens/LecturesScreen';
