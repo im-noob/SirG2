@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, View, FlatList, Dimensions ,Image} from 'react-native';
-import { Col, Row, Content, Card, CardItem, Grid, Text, Button, Left, Body } from 'native-base';
+import { StyleSheet, View, FlatList, Dimensions ,Image,Linking} from 'react-native';
+import { Col, Row, Content, Card, CardItem, Grid, Text, Button, Left, Body, Right } from 'native-base';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createStackNavigator } from 'react-navigation';
+import ShowBookDetails from "./ShowBookDetails";
 
 const data = [
                 { key: 'A' ,rating:'3.5', real_price:'150', offer_price:'70',  buy_count:'3,151', title:'Think and Grow Rich', image:'https://images-na.ssl-images-amazon.com/images/I/51Y8jwGiebL._SX328_BO1,204,203,200_.jpg' }, 
@@ -30,7 +32,7 @@ const formatData = (data, numColumns) => {
 };
 
 const numColumns = 2;
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
@@ -39,7 +41,7 @@ export default class HomeScreen extends Component {
       
         <Content>
           <Card style={{flex: 0}}>
-            <CardItem>
+            <CardItem button onPress={() => {this.props.navigation.navigate('ShowBookDetails')}}>
               <Body>
                 <Image source={{uri: item.image}} style={{height: 200, width: "100%", flex: 1}}/>
               </Body>
@@ -54,9 +56,11 @@ export default class HomeScreen extends Component {
             <Grid style={{paddingHorizontal:8,marginVertical:2,flexDirection:'row'}}>
               <Text style={{fontWeight:'500',fontSize:15,backgroundColor:'#26a541',color:'white',borderRadius:5,paddingHorizontal:5}}>{item.rating}<Icon name="star" size={15}/></Text>
               <Text style={{paddingHorizontal:4 ,color:'#8b8b8b',fontSize:15,}}>({item.buy_count})</Text>
-              <Text style={{paddingHorizontal:4 ,color:'#4bb550',fontSize:25}}><Icon name="checkbox-marked-circle-outline" style={{color:'#26a541'}} size={25}/></Text>
+              <Right>
+                <Text style={{paddingHorizontal:4 ,color:'#4bb550',fontSize:25,}}><Icon name="checkbox-marked-circle-outline" style={{color:'#26a541'}} size={25}/></Text>
+              </Right>
             </Grid>
-            <Button full dark>
+            <Button full dark button onPress={() => {Linking.openURL('https://razorpay.com/demo/');}}>
               <Text>Buy Now</Text>
             </Button>
             
@@ -96,4 +100,30 @@ const styles = StyleSheet.create({
   itemText: {
     color: '#fff',
   },
+});
+
+export default class Home extends Component {
+  // static navigationOptions={
+  //   header:null,
+  // }
+  render(){
+    return(
+      <HomeStack/>
+    );
+  }
+}
+
+const HomeStack = createStackNavigator({
+    Home:{
+      screen:HomeScreen,
+      navigationOptions:{
+        header:null,
+      }
+    },
+    ShowBookDetails:{
+      screen:ShowBookDetails,
+      navigationOptions:{
+        header:null,
+      }
+    }
 });

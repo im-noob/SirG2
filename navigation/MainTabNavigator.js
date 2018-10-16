@@ -3,7 +3,7 @@ import {StyleSheet,Text,View,ScrollView,Image,TouchableOpacity } from 'react-nat
 import {createDrawerNavigator,DrawerItems, SafeAreaView,createStackNavigator,NavigationActions } from 'react-navigation';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import HomeScreen from '../screens/HomeScreen';
+import Home from '../screens/HomeScreen';
 import LecturesScreen from '../screens/LecturesScreen';
 import AttendenceScreen from '../screens/AttendenceScreen';
 import GradeScreen from '../screens/GradeScreen';
@@ -51,7 +51,7 @@ const HeaderTitle = (<Text style={{color:"#fff",padding: 10, marginLeft:5, fontS
 const HomeScreenStack = createStackNavigator(
   {
     HomeScreen: {
-      screen: HomeScreen,
+      screen: Home,
     }
   },
   {
