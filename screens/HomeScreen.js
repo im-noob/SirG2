@@ -5,18 +5,32 @@ import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createStackNavigator } from 'react-navigation';
 import ShowBookDetails from "./ShowBookDetails";
 
+// const data = [
+//                 { key: 'A' ,rating:'3.5', real_price:'150', offer_price:'70',  reviews_count:'3,151', title:'Think and Grow Rich', image:'https://images-na.ssl-images-amazon.com/images/I/51Y8jwGiebL._SX328_BO1,204,203,200_.jpg' }, 
+//                 { key: 'B' ,rating:'4.0', real_price:'199', offer_price:'129', reviews_count:'235',   title:'The Girl in Room 105', image:'https://images-na.ssl-images-amazon.com/images/I/417NSfZZIWL._SX328_BO1,204,203,200_.jpg' }, 
+//                 { key: 'C' ,rating:'3.5', real_price:'499', offer_price:'298', reviews_count:'834',   title:'The Subtle Art of N..', image:'https://images-na.ssl-images-amazon.com/images/I/51r9XYcHP%2BL._SX331_BO1,204,203,200_.jpg' }, 
+//                 { key: 'D' ,rating:'4.0', real_price:'30',  offer_price:'18',  reviews_count:'311',   title:'General Knowledge ..', image:'https://images-na.ssl-images-amazon.com/images/I/41Cme4Z%2B8cL._SX316_BO1,204,203,200_.jpg' }, 
+//                 { key: 'E' ,rating:'4.5', real_price:'299', offer_price:'155', reviews_count:'1028',  title:'Inner Engineering: ..', image:'https://images-na.ssl-images-amazon.com/images/I/51tEI%2BnAhdL._SX310_BO1,204,203,200_.jpg' }, 
+//                 { key: 'F' ,rating:'5.0', real_price:'250', offer_price:'158', reviews_count:'166',   title:'Life\'s Amazing Secr..', image:'https://images-na.ssl-images-amazon.com/images/I/410oZGDHQgL._SX324_BO1,204,203,200_.jpg' }, 
+//                 { key: 'G' ,rating:'4.8', real_price:'199', offer_price:'123', reviews_count:'219',   title:'The Perfect Us', image:'https://images-na.ssl-images-amazon.com/images/I/41ch88E5cCL._SX324_BO1,204,203,200_.jpg' }, 
+//                 { key: 'H' ,rating:'4.0', real_price:'245', offer_price:'184', reviews_count:'259',   title:'The Art of War', image:'https://images-na.ssl-images-amazon.com/images/I/51WVsB5j8CL._SX302_BO1,204,203,200_.jpg' }, 
+//                 { key: 'I' ,rating:'4.0', real_price:'199', offer_price:'149', reviews_count:'5',     title:'Self-Help', image:'https://images-na.ssl-images-amazon.com/images/I/51k7d7w7ybL._SX320_BO1,204,203,200_.jpg' }, 
+//                 { key: 'J' ,rating:'4.5', real_price:'399', offer_price:'180', reviews_count:'3126',  title:'Rich Dad Poor Dad', image:'https://images-na.ssl-images-amazon.com/images/I/518zZZFEYNL._SX331_BO1,204,203,200_.jpg' },
+// ];
 const data = [
-                { key: 'A' ,rating:'3.5', real_price:'150', offer_price:'70',  buy_count:'3,151', title:'Think and Grow Rich', image:'https://images-na.ssl-images-amazon.com/images/I/51Y8jwGiebL._SX328_BO1,204,203,200_.jpg' }, 
-                { key: 'B' ,rating:'4.0', real_price:'199', offer_price:'129', buy_count:'235',   title:'The Girl in Room 105', image:'https://images-na.ssl-images-amazon.com/images/I/417NSfZZIWL._SX328_BO1,204,203,200_.jpg' }, 
-                { key: 'C' ,rating:'3.5', real_price:'499', offer_price:'298', buy_count:'834',   title:'The Subtle Art of N..', image:'https://images-na.ssl-images-amazon.com/images/I/51r9XYcHP%2BL._SX331_BO1,204,203,200_.jpg' }, 
-                { key: 'D' ,rating:'4.0', real_price:'30',  offer_price:'18',  buy_count:'311',   title:'General Knowledge ..', image:'https://images-na.ssl-images-amazon.com/images/I/41Cme4Z%2B8cL._SX316_BO1,204,203,200_.jpg' }, 
-                { key: 'E' ,rating:'4.5', real_price:'299', offer_price:'155', buy_count:'1028',  title:'Inner Engineering: ..', image:'https://images-na.ssl-images-amazon.com/images/I/51tEI%2BnAhdL._SX310_BO1,204,203,200_.jpg' }, 
-                { key: 'F' ,rating:'5.0', real_price:'250', offer_price:'158', buy_count:'166',   title:'Life\'s Amazing Secr..', image:'https://images-na.ssl-images-amazon.com/images/I/410oZGDHQgL._SX324_BO1,204,203,200_.jpg' }, 
-                { key: 'G' ,rating:'4.8', real_price:'199', offer_price:'123', buy_count:'219',   title:'The Perfect Us', image:'https://images-na.ssl-images-amazon.com/images/I/41ch88E5cCL._SX324_BO1,204,203,200_.jpg' }, 
-                { key: 'H' ,rating:'4.0', real_price:'245', offer_price:'184', buy_count:'259',   title:'The Art of War', image:'https://images-na.ssl-images-amazon.com/images/I/51WVsB5j8CL._SX302_BO1,204,203,200_.jpg' }, 
-                { key: 'I' ,rating:'4.0', real_price:'199', offer_price:'149', buy_count:'5',     title:'Self-Help', image:'https://images-na.ssl-images-amazon.com/images/I/51k7d7w7ybL._SX320_BO1,204,203,200_.jpg' }, 
-                { key: 'J' ,rating:'4.5', real_price:'399', offer_price:'180', buy_count:'3126',  title:'Rich Dad Poor Dad', image:'https://images-na.ssl-images-amazon.com/images/I/518zZZFEYNL._SX331_BO1,204,203,200_.jpg' },
+                { key: 'A' ,rating:'3.5', real_price:'150', offer_price:'70', reviews_count:'3,151', title:'Think and Grow Rich', image:'https://images-na.ssl-images-amazon.com/images/I/51Y8jwGiebL._SX328_BO1,204,203,200_.jpg' }, 
+                { key: 'B' ,rating:'4.0', real_price:'199', offer_price:'129', reviews_count:'235', title:'The Girl in Room 105', image:'https://images-na.ssl-images-amazon.com/images/I/417NSfZZIWL._SX328_BO1,204,203,200_.jpg' }, 
+                { key: 'C' ,rating:'3.5', real_price:'499', offer_price:'298', reviews_count:'834', title:'The Subtle Art of Not Giving a F*ck', image:'https://images-na.ssl-images-amazon.com/images/I/51r9XYcHP%2BL._SX331_BO1,204,203,200_.jpg' }, 
+                { key: 'D' ,rating:'4.0', real_price:'30', offer_price:'18', reviews_count:'311', title:'General Knowledge 2019', image:'https://images-na.ssl-images-amazon.com/images/I/41Cme4Z%2B8cL._SX316_BO1,204,203,200_.jpg' }, 
+                { key: 'E' ,rating:'4.5', real_price:'299', offer_price:'155', reviews_count:'1028', title:'Inner Engineering: A Yogi’s Guide to Joy', image:'https://images-na.ssl-images-amazon.com/images/I/51tEI%2BnAhdL._SX310_BO1,204,203,200_.jpg' }, 
+                { key: 'F' ,rating:'5.0', real_price:'250', offer_price:'158', reviews_count:'166', title:'Life\'s Amazing Secrets: How to Find Balance and Purpose in Your Life', image:'https://images-na.ssl-images-amazon.com/images/I/410oZGDHQgL._SX324_BO1,204,203,200_.jpg' }, 
+                { key: 'G' ,rating:'4.8', real_price:'199', offer_price:'123', reviews_count:'219', title:'The Perfect Us', image:'https://images-na.ssl-images-amazon.com/images/I/41ch88E5cCL._SX324_BO1,204,203,200_.jpg' }, 
+                { key: 'H' ,rating:'4.0', real_price:'245', offer_price:'184', reviews_count:'259', title:'The Art of War', image:'https://images-na.ssl-images-amazon.com/images/I/51WVsB5j8CL._SX302_BO1,204,203,200_.jpg' }, 
+                { key: 'I' ,rating:'4.0', real_price:'199', offer_price:'149', reviews_count:'5', title:'Self-Help: With Illustrations of Conduct and Perseverance', image:'https://images-na.ssl-images-amazon.com/images/I/51k7d7w7ybL._SX320_BO1,204,203,200_.jpg' }, 
+                { key: 'J' ,rating:'4.5', real_price:'399', offer_price:'180', reviews_count:'3126', title:'Rich Dad Poor Dad: What the Rich Teach their Kids About Money that the Poor and Middle Class Do Not! (With Updates for Today\'s World)', image:'https://images-na.ssl-images-amazon.com/images/I/518zZZFEYNL._SX331_BO1,204,203,200_.jpg' },
 ];
+
+
 const {height,width} = Dimensions.get('window');
 
 const formatData = (data, numColumns) => {
@@ -41,7 +55,9 @@ class HomeScreen extends Component {
       
         <Content>
           <Card style={{flex: 0}}>
-            <CardItem button onPress={() => {this.props.navigation.navigate('ShowBookDetails')}}>
+            <CardItem button onPress={() => {this.props.navigation.navigate('ShowBookDetails',{
+               key: item.key ,rating:item.rating, real_price:item.real_price, offer_price:item.offer_price,  reviews_count:item.reviews_count, title:item.title, image:item.image
+            })}}>
               <Body>
                 <Image source={{uri: item.image}} style={{height: 200, width: "100%", flex: 1}}/>
               </Body>
@@ -55,7 +71,7 @@ class HomeScreen extends Component {
             </Grid>
             <Grid style={{paddingHorizontal:8,marginVertical:2,flexDirection:'row'}}>
               <Text style={{fontWeight:'500',fontSize:15,backgroundColor:'#26a541',color:'white',borderRadius:5,paddingHorizontal:5}}>{item.rating}<Icon name="star" size={15}/></Text>
-              <Text style={{paddingHorizontal:4 ,color:'#8b8b8b',fontSize:15,}}>({item.buy_count})</Text>
+              <Text style={{paddingHorizontal:4 ,color:'#8b8b8b',fontSize:15,}}>({item.reviews_count})</Text>
               <Right>
                 <Text style={{paddingHorizontal:4 ,color:'#4bb550',fontSize:25,}}><Icon name="checkbox-marked-circle-outline" style={{color:'#26a541'}} size={25}/></Text>
               </Right>
@@ -103,9 +119,6 @@ const styles = StyleSheet.create({
 });
 
 export default class Home extends Component {
-  // static navigationOptions={
-  //   header:null,
-  // }
   render(){
     return(
       <HomeStack/>
