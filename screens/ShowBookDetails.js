@@ -8,8 +8,17 @@ export default class ShowBookDetails extends Component {
     static navigationOptions={
         header:null,
     }
-    
+    constructor(props){
+      super(props);
+      this.state = {
+
+      }
+      console.log("constructor showbookdetisl"+Date());
+      
+  }
     render() {
+    console.log("in render variable assigned start showbookdetisl"+Date());
+
     const { navigation } = this.props;
     const key = navigation.getParam('key', 'key');
     const rating = navigation.getParam('rating', 'rating');
@@ -18,24 +27,16 @@ export default class ShowBookDetails extends Component {
     const reviews_count = navigation.getParam('reviews_count', 'reviews_count');
     const title = navigation.getParam('title', 'title');
     const image = navigation.getParam('image', 'image');
-    const rating_count = '8,323';
-    const rate_5 = '4000';
-    const rate_4 = '2000';
-    const rate_3 = '1100';
-    const rate_2 = '900';
-    const rate_1 = '323';
-    const Author = "Preeti Shenoy";
-    const Description = "Life Is What You Make It is a fictional story about a strong female character whose life takes unexpected turns and how she uses her indomitable spirit to make the most of it.";
-    var details = [
-      {item:'Language',value:'English'},
-      {item:'Binding',value:'Paperback'},
-      {item:'Publsher',value:'RUPA'},
-      {item:'Genre',value:'FICTION'},
-      {item:'ISBN',value:'9788129142146, 8129142147'},
-      {item:'Edition',value:'1,2016'},
-      {item:'Pages',value:'280'},
-
-    ];
+    const rating_count = navigation.getParam('rating_count', 'rating_count');
+    const rate_5 = navigation.getParam('rate_5', 'rate_5');
+    const rate_4 = navigation.getParam('rate_4', 'rate_4');
+    const rate_3 = navigation.getParam('rate_3', 'rate_3');
+    const rate_2 = navigation.getParam('rate_2', 'rate_2');
+    const rate_1 = navigation.getParam('rate_1', 'rate_1');
+    const Author = navigation.getParam('Author', 'Author');
+    const Description = navigation.getParam('Description', 'Description');;
+    var details = navigation.getParam('details', 'details');;
+    console.log("in render variable assigned showbookdetisl"+Date());
     return (
             <Container>
                 <Content>

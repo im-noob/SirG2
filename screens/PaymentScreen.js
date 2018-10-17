@@ -49,7 +49,7 @@ export default class PaymentScreen extends Component {
                                 <Text >Due Amount</Text>
                                 <Right>
                                     <Button bordered danger>
-                                    <Text style={{fontWeight:'800', color:'#9f4b53'}}><Icon name="currency-inr" size={15}/>5200</Text>
+                                    <Text style={{fontWeight:'800', color:'#9f4b53'}}><Icon name="currency-inr" size={15}/>4000</Text>
                                     </Button>
                                 </Right>
                             </CardItem>
