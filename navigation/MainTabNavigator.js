@@ -11,6 +11,10 @@ import HolidayScreen from '../screens/HolidatScreen';
 import NoticeScreen from '../screens/NoticeScreen';
 import NotesScreen from '../screens/NotesScreen';
 import PaymentScreen from '../screens/PaymentScreen';
+import NoticeDetails from '../screens/Notice/NoticeDetails';
+import NoticeList from '../screens/Notice/NoticeList';
+import AttendanceList from '../screens/Attendance/AttendanceList';
+import AttendanceDetails from '../screens/Attendance/AttendanceDetails';
 
 export default class MainTabNavigator extends React.Component{
   render(){
@@ -83,8 +87,29 @@ const LecturesScreenStack = createStackNavigator(
 
 const NoticeScreenStack = createStackNavigator(
   {
-    HomeScreen: {
+    NoticeScreen: {
       screen: NoticeScreen,
+		},
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+			headerTitle: HeaderTitle,
+			headerStyle: {
+				backgroundColor: '#2874f0'
+			},
+			headerLeft: <MenuButton obj={navigation}  />,
+    }),
+  }
+);
+
+
+const AttendenceScreenStack = createStackNavigator(
+  {
+		AttendanceList: {
+      screen: AttendanceList,
+		},
+		AttendanceDetails: {
+      screen: AttendanceDetails,
     }
   },
   {
@@ -98,22 +123,6 @@ const NoticeScreenStack = createStackNavigator(
   }
 );
 
-const AttendenceScreenStack = createStackNavigator(
-  {
-    HomeScreen: {
-      screen: AttendenceScreen,
-    }
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-			headerTitle: HeaderTitle,
-			headerStyle: {
-				backgroundColor: '#2874f0'
-			},
-			headerLeft: <MenuButton obj={navigation}  />,
-    }),
-  }
-);
 const GradeScreenStack = createStackNavigator(
   {
     HomeScreen: {
@@ -200,12 +209,12 @@ const AppDrawerNavigator = createDrawerNavigator({
 				drawerIcon: ({ tintColor }) => (<Icon name="bell-outline" size={24} style={{ color: tintColor }} />),
 		}
 	},
-	Attendance: {
-		screen: AttendenceScreenStack,
-		navigationOptions: {
-				drawerIcon: ({ tintColor }) => (<Icon name="account-check" size={24} style={{ color: tintColor }} />),
-		}
-	},
+	// Attendance: {
+	// 	screen: AttendenceScreenStack,
+	// 	navigationOptions: {
+	// 			drawerIcon: ({ tintColor }) => (<Icon name="account-check" size={24} style={{ color: tintColor }} />),
+	// 	}
+	// },
 	Grades: {
 		screen: GradeScreenStack,
 		navigationOptions: {

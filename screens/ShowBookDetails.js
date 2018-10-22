@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, View, FlatList, Dimensions ,Image,Linking} from 'react-native';
-import { Col, Row, Content, Card, CardItem, Grid, Text, Button, Spinner, Body, Right ,Container,Header,Title,Thumbnail,List,ListItem, Label} from 'native-base';
+import { StyleSheet, View, Dimensions ,Image,Linking} from 'react-native';
+import {Content, Card, CardItem, Grid, Text, Button, Spinner, Body, Right ,Container, List,ListItem} from 'native-base';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const {height,width} = Dimensions.get('window');
@@ -14,7 +14,6 @@ export default class ShowBookDetails extends Component {
       this.state = {
         renderCoponentFlag:false,
       }
-      console.log("constructor showbookdetisl"+Date());
       
     }
     componentDidMount() {
@@ -22,7 +21,6 @@ export default class ShowBookDetails extends Component {
     }
     render() {
     const {renderCoponentFlag} = this.state;
-    console.log("in render variable assigned start showbookdetisl"+Date());
 
     const { navigation } = this.props;
     const key = navigation.getParam('key', 'key');
@@ -41,7 +39,6 @@ export default class ShowBookDetails extends Component {
     const Author = navigation.getParam('Author', 'Author');
     const Description = navigation.getParam('Description', 'Description');;
     var details = navigation.getParam('details', 'details');;
-    console.log("in render variable assigned showbookdetisl"+Date());
     if(renderCoponentFlag){
         return (
           <Container>
@@ -49,7 +46,7 @@ export default class ShowBookDetails extends Component {
                 <Card style={{flex: 0}}>
                   <CardItem>
                     <Body>
-                      <Image source={{uri: image}} style={{height: height*(1/2), width: width*(1/2), flex: 1,alignSelf:'center'}}/>
+                      <Image source={{uri: image}} style={{height: height*(1/2), width: (height*(1/2) )*(330/499), flex: 1,alignSelf:'center'}}/>
                     </Body>
                   </CardItem>
                   <Text style={{paddingHorizontal:15,marginVertical:2,fontWeight:'500',fontSize:19}}>{title}</Text>
