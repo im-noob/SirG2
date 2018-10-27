@@ -5,8 +5,7 @@ import {
     View,
     Linking
 } from "react-native";
-import { Container, Content, List, ListItem, Button, Label, Accordion,Text , Card,Header,Form,Item,Spinner,CheckBox,Left,Right,Body } from 'native-base'
-import {createDrawerNavigator,DrawerItems, SafeAreaView,createStackNavigator,NavigationActions } from 'react-navigation';
+import { Container, Content, List, ListItem, Button, Accordion,Text ,Spinner,Left,Right,Body } from 'native-base'
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class NotesScreen extends Component {
@@ -35,7 +34,7 @@ export default class NotesScreen extends Component {
                         <Body>
                             <Text>{item.title}</Text>
                             <Text note>{item.content}</Text>
-                            <Text note style={{color:'blue'}}>{item.date}</Text>
+                            <Text note style={{color:'#3679e5'}}>{item.date}</Text>
 
                         </Body>
                         <Right>
@@ -80,7 +79,6 @@ export default class NotesScreen extends Component {
                             <Accordion
                                 dataArray={dataArray}
                                 renderContent={this._renderContent}
-                                expanded={1}
                             />
                         </List>
                         {/* Notes List:end */}

@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions ,Image,Linking} from 'react-native';
 import {Content, Card, CardItem, Grid, Text, Button, Spinner, Body, Right ,Container, List,ListItem} from 'native-base';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const {height,width} = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 export default class ShowBookDetails extends Component {
     static navigationOptions={
         header:null,

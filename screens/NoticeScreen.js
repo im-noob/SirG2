@@ -4,8 +4,7 @@ import {
     WebView ,
     View,
 } from "react-native";
-import { Container, Spinner, Header,List,ListItem, Text,Content,Left,Label,Right,Body} from 'native-base';
-import {createDrawerNavigator,DrawerItems, SafeAreaView,createStackNavigator,NavigationActions } from 'react-navigation';
+import { Container, Spinner,List,ListItem, Text,Content,Left,Right,Body} from 'native-base';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class NoticeScreen extends Component {
@@ -41,7 +40,7 @@ export default class NoticeScreen extends Component {
                                     <Body>
                                         <Text>{item.title}</Text>
                                         <Text note>{item.content}</Text>
-                                        <Text note style={{color:'blue'}}>{item.date}</Text>
+                                        <Text note style={{color:'#3679e5'}}>{item.date}</Text>
 
                                     </Body>
                                     <Right>
