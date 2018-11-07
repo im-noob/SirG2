@@ -18,6 +18,8 @@ export default class LecturesScreen extends Component {
             date:'1',
             teacher:'Select the Lecture From the list',
             selected:'1',
+            exercise:'',
+            homework:'',
             data:[{'id':'1','l_name':'English','teacher':'Randhari Singh','Time':'09:00-11:00','date':'5 Nov',exercise:'Read Lession 5',homework:'Write a notes on Postman'},
             {'id':'2','l_name':'History','teacher':'Randhari Singh Raghav','Time':'10:00-11:00','date':'5 Nov',exercise:'Do exercise 5',homework:'Write a leave application to the principle  '},
             {'id':'3','l_name':'Mathematics','teacher':'Deepak Rohani','Time':'11:00-12:00','date':'5 Nov',exercise:'Read Lession 6',homework:'Complete Exercise 4.6'},
@@ -29,6 +31,8 @@ export default class LecturesScreen extends Component {
         console.log(item.id);
         this.setState({selected:item.id});
         this.setState({date:item.date});
+        this.setState({exercise:item.exercise});
+        this.setState({homework:item.homework});
         this.setState({teacher:item.teacher});
         this.setState({lession:item.l_name});
     }
@@ -108,13 +112,13 @@ export default class LecturesScreen extends Component {
                                     <Text>Lession</Text>
                                 </Separator>
                                 <ListItem >
-                                <Text> ({this.state.exercise})</Text>
+                                <Text>{this.state.exercise}</Text>
                                 </ListItem>
                                 <Separator bordered>
                                     <Text>Homework</Text>
                                 </Separator>
                                 <ListItem>
-                                <Text>({this.state.homework})</Text>
+                                <Text>{this.state.homework}</Text>
                                 </ListItem>
                             </List>
                         </Card>
