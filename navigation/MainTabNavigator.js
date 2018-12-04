@@ -11,6 +11,7 @@ import HolidayScreen from '../screens/HolidatScreen';
 import NoticeScreen from '../screens/NoticeScreen';
 import NotesScreen from '../screens/NotesScreen';
 import PaymentScreen from '../screens/PaymentScreen';
+import TestScreen from '../screens/TestScreen';
 
 export default class MainTabNavigator extends React.Component{
   render(){
@@ -64,6 +65,25 @@ const HomeScreenStack = createStackNavigator(
     }),
   }
 );
+
+const TestScreenStack = createStackNavigator(
+  {
+    HomeScreen: {
+      screen: TestScreen,
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+			headerTitle: HeaderTitle,
+			headerStyle: {
+				backgroundColor: '#2874f0'
+			},
+			headerLeft: <MenuButton obj={navigation}  />,
+    }),
+  }
+);
+
+
 const LecturesScreenStack = createStackNavigator(
   {
     HomeScreen: {
@@ -189,6 +209,12 @@ const AppDrawerNavigator = createDrawerNavigator({
 		screen:HomeScreenStack,
 		navigationOptions: {
 			drawerIcon: ({ tintColor }) => (<Icon name="home-outline" size={24} style={{ color: tintColor }} />),
+		}
+	},
+	Test:{
+		screen:TestScreenStack,
+		navigationOptions: {
+			drawerIcon: ({ tintColor }) => (<Icon name="clipboard-check-outline" size={24} style={{ color: tintColor }} />),
 		}
 	},
 	Lectures: {
