@@ -11,7 +11,7 @@ import HolidayScreen from '../screens/HolidatScreen';
 import NoticeScreen from '../screens/NoticeScreen';
 import NotesScreen from '../screens/NotesScreen';
 import PaymentScreen from '../screens/PaymentScreen';
-import TestScreen from '../screens/TestScreen';
+import TestListScreen from '../screens/TestListScreen';
 
 export default class MainTabNavigator extends React.Component{
   render(){
@@ -66,10 +66,10 @@ const HomeScreenStack = createStackNavigator(
   }
 );
 
-const TestScreenStack = createStackNavigator(
+const TestListScreenStack = createStackNavigator(
   {
     HomeScreen: {
-      screen: TestScreen,
+      screen: TestListScreen,
     }
   },
   {
@@ -212,7 +212,7 @@ const AppDrawerNavigator = createDrawerNavigator({
 		}
 	},
 	Test:{
-		screen:TestScreenStack,
+		screen:TestListScreenStack,
 		navigationOptions: {
 			drawerIcon: ({ tintColor }) => (<Icon name="clipboard-check-outline" size={24} style={{ color: tintColor }} />),
 		}
