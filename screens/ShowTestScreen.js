@@ -5,7 +5,8 @@ import {
     ScrollView,
     View,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
+    ToastAndroid
 } from "react-native";
 import {Body, Container, Spinner, Button,Header, Text,Content,Card,CardItem, Right,List,ListItem, Left,Radio} from 'native-base';
 import {createDrawerNavigator,DrawerItems, SafeAreaView,createStackNavigator,NavigationActions } from 'react-navigation';
@@ -65,7 +66,7 @@ export default class ShowTestScreen extends Component {
         let question_active_no = this.state.question_active_no
         if(input == 'prev'){
             if(question_active_no == 0){
-                alert("This is First Question");
+                ToastAndroid.show("This is First Question",ToastAndroid.LONG);
                 return;
             }
             this.setState({
@@ -73,7 +74,7 @@ export default class ShowTestScreen extends Component {
             });
         }else if(input == 'next'){
             if(question_active_no == this.state.quenstion_set.length-1){
-                alert("This is Last Question");
+                ToastAndroid.show("This is Last Question",ToastAndroid.LONG);
                 return;
             }
             this.setState({
