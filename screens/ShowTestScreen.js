@@ -4,14 +4,15 @@ import {
     WebView ,
     ScrollView,
     View,
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from "react-native";
 import {Body, Container, Spinner, Button,Header, Text,Content,Card,CardItem, Right,List,ListItem, Left,Radio} from 'native-base';
 import {createDrawerNavigator,DrawerItems, SafeAreaView,createStackNavigator,NavigationActions } from 'react-navigation';
 import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-const {WINDOW_HEIGHT,WINDOW_WIDTH} = Dimensions.get('window');
+const {height,width} = Dimensions.get('window');
 export default class ShowTestScreen extends Component {
     constructor(props){
         super(props);
@@ -25,22 +26,26 @@ export default class ShowTestScreen extends Component {
 
     render() {
         var items = [
-            'Simon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon Mignolet',
-            'Nathaniel ClynSimon MignoletSimon MignoletSimon MignoletSimon Mignolete',
-            'Dejan LovrenSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon Mignolet',
-            'Mama SakhoSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon MignoletSimon Mignolet',
-            'Emre Can'
+            {optionNO:'Q',content:'Grand Central Terminal, Park Avenue, New York is the world\'s',type:'text'},
+            {optionNO:'1.',content:'largest railway station',type:'text'},
+            {optionNO:'2.',content:'highest railway station',type:'text'},
+            {optionNO:'3.',content:'longest railway station',type:'text'},
+            {optionNO:'4.',content:'None of the above',type:'text'},
           ];
         const {renderCoponentFlag} = this.state;
+        console.log(height);
+        console.log(width);
         if(renderCoponentFlag){
             return(
                 <Container>
                     <Header/>
                     <View>
-                        <View style={{}}>
-                        {/* //flex: 1, backgroundColor: '#F5FCFF',justifyContent:'space-between' */}
-                            <View style={{}}>
-                            {/* //flex:1 */}
+                        <View style={{
+                            flex: 1,
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                        }}>
+                            <View style={{height:height-100,backgroundColor:'#fafafa'}}>
                                 <Card>
                                     <CardItem>
                                         <Icon name="timer" style={{fontSize:20}}/><Text > 00:00:05</Text>
@@ -61,7 +66,13 @@ export default class ShowTestScreen extends Component {
                                                     renderRow={(item) =>
                                                     <View>
                                                         <ListItem>
-                                                            <Text>{item}</Text> 
+                                                            {
+                                                                item.optionNO=='Q'?
+                                                                <Text>{item.content}</Text>:
+                                                                <TouchableOpacity>
+                                                                    <Text>{item.optionNO} {item.content}</Text>
+                                                                </TouchableOpacity>
+                                                            }
                                                         </ListItem>
                                                     </View>
                                                     }>
@@ -71,10 +82,14 @@ export default class ShowTestScreen extends Component {
                                     </Card>
                                 </ScrollView>
                             </View>
-                            <View style={{height: 100}}>
-                                <View style={{flexDirection:'row'}}>
-                                    <Text style={{flex:1,backgroundColor:'#879f99'}}> Q. 1</Text>
-                                    <Text style={{flex:1,backgroundColor:'#5a9f92'}}> Q. 1</Text>
+                            <View style={{height:20,}}>
+                                <View style={{flexDirection:'row',}}>
+                                    <TouchableOpacity style={{backgroundColor:'#000',flex:1,alignContent:'center',alignSelf:'center',alignItems:'center'}}>
+                                        <Text style={{paddingVertical: 5,fontSize:25,color:'white',alignSelf:'center',alignItems:'center',alignContent:'center'}}><Icon name="less-than" style={{fontSize:30}}/> PREV</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={{backgroundColor:'#0a60ff',flex:1,alignContent:'center',alignSelf:'center',alignItems:'center'}}>
+                                        <Text style={{paddingVertical: 5,fontSize:25,color:'white',alignSelf:'center',alignItems:'center',alignContent:'center'}}>NEXT<Icon name="greater-than" style={{fontSize:30}}/></Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         </View>
