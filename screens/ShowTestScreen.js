@@ -30,6 +30,7 @@ export default class ShowTestScreen extends Component {
             timer:'00:05:00',
             question_active_no:0,
             answerArr:[],
+            selectedCicked:false,
         }
     }
     timerController = () =>{
@@ -164,6 +165,7 @@ export default class ShowTestScreen extends Component {
         }
     }
     selectAnswer = (question_active_no,optionNO) => {
+        this.changeQuestion("next");
         answerArr = this.state.answerArr;        
         console.log("question no :",question_active_no);
         console.log("option seletedg",optionNO);
@@ -171,6 +173,7 @@ export default class ShowTestScreen extends Component {
         answerArr[question_active_no] = optionNO;
         this.setState({
             answerArr:answerArr,
+            selectedCicked:true
         });
         console.log(answerArr);
     }
@@ -215,7 +218,16 @@ export default class ShowTestScreen extends Component {
                                                                 item.optionNO=='Q'?
                                                                 <Text>{item.content}</Text>:
                                                                 <TouchableOpacity onPress={()=>{this.selectAnswer(this.state.question_active_no,item.optionNO)} }>
-                                                                     <Text>{item.optionNO} {item.content} <Icon name="checkbox-marked-circle-outline"  style={{fontSize:25,color:"#04c94d"}}/> </Text>
+                                                                     <Text>{item.optionNO} {item.content} 
+                                                                     {console.log("htis is under render",this.state.answerArr[this.state.question_active_no],item.optionNO)}
+                                                                     {
+                                                                         
+                                                                         (this.state.answerArr[this.state.question_active_no] == item.optionNO) && this.state.selectedCicked?
+                                                                         <Icon name="checkbox-marked-circle-outline"  style={{fontSize:25,color:"#04c94d"}}/>:
+                                                                         <Icon name="checkbox-marked-circle-outline"  style={{fontSize:0,color:"#04c94d"}}/>
+                                                                         
+                                                                     }
+                                                                     </Text>
                                                                 </TouchableOpacity>
                                                             }
                                                         </ListItem>
