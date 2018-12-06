@@ -100,6 +100,8 @@ export default class ShowTestScreen extends Component {
             fullMarks:'20',
             noOfQuestion:'5',
             duration:'5',
+            testType:'GK',
+            negativeMarkPerWrongQustion:'1',
             quenstion_set:[
                 [
                     {optionNO:'Q',content:'Grand Central Terminal, Park Avenue, New York is the world\'s',type:'text'},
