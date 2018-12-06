@@ -18,7 +18,9 @@ export default class TestListScreen extends Component {
         setTimeout(() => {this.setState({renderCoponentFlag: true})}, 0);
     }
     startTest = (testID) =>{
-        alert("start Test"+testID);
+        // alert("start Test"+testID);
+        this.props.navigation.navigate('showTestScreen',{testID:testID});
+        // this.props.navigation.navigate('NoticeScreen')
     }
 
     render() {
@@ -27,13 +29,13 @@ export default class TestListScreen extends Component {
         var items = [
             {testID:'1', testName:'IMO Mock',testType:'Mock',testStatus:'attempt'},
             {testID:'2', testName:'NSO Mock',testType:'Mock',testStatus:'attempt'},
-            {testID:'3', testName:'NSTSE Mock',testType:'Mock',testStatus:'attempt'},
-            {testID:'4', testName:'IJSO Mock',testType:'Mock',testStatus:'attempt'},
+            // {testID:'3', testName:'NSTSE Mock',testType:'Mock',testStatus:'attempt'},
+            // {testID:'4', testName:'IJSO Mock',testType:'Mock',testStatus:'attempt'},
           ];
         if(renderCoponentFlag){
             return(
                 <Container>
-                    <Header/>
+                    {/* <Header/> */}
                     <Content>
                         <List dataArray={items}
                             renderRow={(item) =>

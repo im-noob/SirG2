@@ -25,7 +25,7 @@ export default class ShowTestScreen extends Component {
                 fullMarks:'20',
                 noOfQuestion:'5',
                 duration:'5',
-                quenstion_set:[]    
+                question_set:[]    
             },
             timer:'00:05:00',
             question_active_no:0,
@@ -48,8 +48,19 @@ export default class ShowTestScreen extends Component {
             this.setState({
                 timer:timer
             });
-            alert("Time UP");
-            ToastAndroid.show("Auto-submiting...",ToastAndroid.LONG);
+            this.props.navigation.navigate('showResultScreen',{
+                TestName:this.state.testData_set.testName,
+                NoOfQuestion:this.state.testData_set.noOfQuestion,
+                TestType:this.state.testData_set.testType,
+                Duration:this.state.testData_set.duration,
+                FullMarks:this.state.testData_set.fullMarks,
+                NegativeMarking:this.state.testData_set.negativeMarkPerWrongQustion,
+                answerArr:this.state.answerArr,
+                PositiveMarking:this.state.testData_set.PositiveMarkPerRightQustion,
+                CorrectanswerArr:this.state.testData_set.CorrectanswerArr,                
+            });
+            // alert("");
+            ToastAndroid.show("Time UP!!! Auto-submiting...",ToastAndroid.LONG);
             return;
         }
         if(ss==0){
@@ -96,13 +107,15 @@ export default class ShowTestScreen extends Component {
     }
     loadQuestion = async () =>{
         testData_set = {
-            testName:'PDO Mock',
+            testName:'IMO Mock',
             fullMarks:'20',
             noOfQuestion:'5',
-            duration:'5',
+            duration:'00:10:30',
             testType:'GK',
             negativeMarkPerWrongQustion:'1',
-            quenstion_set:[
+            PositiveMarkPerRightQustion:'4',
+            CorrectanswerArr:['1.','1.','1.','1.','1.'],
+            question_set:[
                 [
                     {optionNO:'Q',content:'Grand Central Terminal, Park Avenue, New York is the world\'s',type:'text'},
                     {optionNO:'1.',content:'largest railway station',type:'text'},
@@ -140,10 +153,63 @@ export default class ShowTestScreen extends Component {
                 ],
             ]    
         };
-        answerArr = new Array(testData_set.quenstion_set.length).fill(0);
+        
+        var testID = this.props.navigation.getParam('testID', 0);
+        console.log("testid:",testID);
+        if(testID == 2){
+            testData_set = {
+                testName:'NSO Mock',
+                fullMarks:'20',
+                noOfQuestion:'5',
+                duration:'00:01:00',
+                testType:'GK',
+                negativeMarkPerWrongQustion:'1',
+                PositiveMarkPerRightQustion:'4',
+                CorrectanswerArr:['2.','2.','2.','2.','2.'],
+                question_set:[
+                    [
+                        {optionNO:'Q',content:'Brass gets discoloured in air because of the presence of which of the following gases in air?',type:'text'},
+                        {optionNO:'1.',content:'Oxygen',type:'text'},
+                        {optionNO:'2.',content:'Hydrogen sulphide',type:'text'},
+                        {optionNO:'3.',content:'Carbon dioxide',type:'text'},
+                        {optionNO:'4.',content:'Nitrogen',type:'text'},
+                    ],
+                    [
+                        {optionNO:'Q',content:'Which of the following is a non metal that remains liquid at room temperature?',type:'text'},
+                        {optionNO:'1.',content:'Phosphorous',type:'text'},
+                        {optionNO:'2.',content:'Bromine',type:'text'},
+                        {optionNO:'3.',content:'Chlorine',type:'text'},
+                        {optionNO:'4.',content:'Helium',type:'text'},
+                    ],
+                    [
+                        {optionNO:'Q',content:'Chlorophyll is a naturally occurring chelate compound in which central metal is',type:'text'},
+                        {optionNO:'1.',content:'copper',type:'text'},
+                        {optionNO:'2.',content:'magnesium',type:'text'},
+                        {optionNO:'3.',content:'iron',type:'text'},
+                        {optionNO:'4.',content:'calcium',type:'text'},
+                    ],
+                    [
+                        {optionNO:'Q',content:'Which of the following is used in pencils?',type:'text'},
+                        {optionNO:'1.',content:'Graphite',type:'text'},
+                        {optionNO:'2.',content:'Silicon',type:'text'},
+                        {optionNO:'3.',content:'Charcoal',type:'text'},
+                        {optionNO:'4.',content:'Phosphorous',type:'text'},
+                    ],
+                    [
+                        {optionNO:'Q',content:'Which of the following metals forms an amalgam with other metals?',type:'text'},
+                        {optionNO:'1.',content:'Tin',type:'text'},
+                        {optionNO:'2.',content:'Mercury',type:'text'},
+                        {optionNO:'3.',content:'Lead',type:'text'},
+                        {optionNO:'4.',content:'Zinc',type:'text'},
+                    ],
+                ]
+            };
+        }
+        answerArr = new Array(testData_set.question_set.length).fill(0);
         this.setState({
             testData_set:testData_set,
             answerArr:answerArr,
+            timer:testData_set.duration,
         })
     }
     changeQuestion = (input) =>{
@@ -157,7 +223,7 @@ export default class ShowTestScreen extends Component {
                 question_active_no: question_active_no -1
             });
         }else if(input == 'next'){
-            if(question_active_no == this.state.testData_set.quenstion_set.length-1){
+            if(question_active_no == this.state.testData_set.question_set.length-1){
                 ToastAndroid.show("This is Last Question",ToastAndroid.LONG);
                 return;
             }
@@ -181,21 +247,21 @@ export default class ShowTestScreen extends Component {
     }
     render() {
         console.log("redngin start");
-        var items = this.state.testData_set.quenstion_set[this.state.question_active_no];
+        var items = this.state.testData_set.question_set[this.state.question_active_no];
         const {renderCoponentFlag} = this.state;
         // console.log(height);
         // console.log(width);
         if(renderCoponentFlag){
             return(
                 <Container>
-                    <Header/>
+                    {/* <Header/> */}
                     <View>
                         <View style={{
                             flex: 1,
                             flexDirection: 'column',
                             justifyContent: 'space-between',
                         }}>
-                            <View style={{height:height-100,backgroundColor:'#fafafa'}}>
+                            <View style={{height:height-120,backgroundColor:'#fafafa'}}>
                                 <Card>
                                     <CardItem>
                                         <Icon name="timer" style={{fontSize:20}}/><Text >{this.state.timer}</Text>

@@ -12,6 +12,8 @@ import NoticeScreen from '../screens/NoticeScreen';
 import NotesScreen from '../screens/NotesScreen';
 import PaymentScreen from '../screens/PaymentScreen';
 import TestListScreen from '../screens/TestListScreen';
+import ShowTestScreen from '../screens/ShowTestScreen';
+import TestResultScreen from '../screens/TestResultScreen';
 
 export default class MainTabNavigator extends React.Component{
   render(){
@@ -65,12 +67,46 @@ const HomeScreenStack = createStackNavigator(
     }),
   }
 );
+const showResultSceenStack = createStackNavigator(
+  {
+    showResultScreen: {
+      screen: TestResultScreen,
+		},
+		backHome:{
+			screen:Home,
+		}
+  },
+  {
+    navigationOptions: () => ({
+			header: null,
+	}),
+  }
+);
+const showTestSceenStack = createStackNavigator(
+  {
+    showTestScreen: {
+      screen: ShowTestScreen,
+		},
+		showResultScreenS:{
+			screen:showResultSceenStack
+		}
+  },
+  {
+    navigationOptions: () => ({
+				header: null,
+		}),
+  }
+);
+
 
 const TestListScreenStack = createStackNavigator(
   {
     HomeScreen: {
       screen: TestListScreen,
-    }
+		},
+		ShowTestScreenS:{
+			screen:showTestSceenStack,
+		}
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -82,6 +118,14 @@ const TestListScreenStack = createStackNavigator(
     }),
   }
 );
+// const ShowTestScreenStack = createStackNavigator({
+// 	ShowTestScreen:{
+// 		screen:ShowTestScreen
+// 	},
+// 	TestListScreen:{
+// 		screen:TestResultScreen
+// 	}
+// });
 
 
 const LecturesScreenStack = createStackNavigator(
@@ -205,7 +249,8 @@ const HolidayScreenStack = createStackNavigator(
 
 
 const AppDrawerNavigator = createDrawerNavigator({
-  Home:{
+  
+	Home:{
 		screen:HomeScreenStack,
 		navigationOptions: {
 			drawerIcon: ({ tintColor }) => (<Icon name="home-outline" size={24} style={{ color: tintColor }} />),
