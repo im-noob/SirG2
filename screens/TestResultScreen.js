@@ -21,20 +21,7 @@ export default class TestResultScreen extends Component {
     }
 
     render() {
-        var items = [
-            {name:'Test Name',value:''},
-            {name:'No of question',value:''},
-            {name:'Test Type',value:''},
-            {name:'Duration',value:''},
-            {name:'Full Marks',value:''},
-            {name:'negative Marking',value:''},
-            {name:'Attemept Question',value:''},
-            {name:'Corrent Question',value:''},
-            {name:'Wrong Queston',value:''},
-            {name:'Marks Obtained',value:''},
-
-
-          ];
+       
         const {renderCoponentFlag} = this.state;
         if(renderCoponentFlag){
             return(
@@ -47,13 +34,16 @@ export default class TestResultScreen extends Component {
                             </CardItem>
                             <CardItem bordered>
                             <Body>
-                                <List dataArray={items}
-                                    renderRow={(item) =>
-                                    <ListItem>
-                                        <Text style={{fontWeight:'800'}}>{item.name} : </Text><Text>{item.value}</Text>
-                                    </ListItem>
-                                    }>
-                                </List>
+                                <Text style={{fontWeight:'800'}}>Test Name : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>No of question : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Test Type : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Duration : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Full Marks : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>negative Marking : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Attemept Question : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Corrent Question : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Wrong Queston : </Text><Text></Text>
+                                <Text style={{fontWeight:'800'}}>Marks Obtained : </Text><Text></Text>                             
                             </Body>
                             </CardItem>
                             <CardItem footer bordered>
