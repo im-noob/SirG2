@@ -110,7 +110,7 @@ export default class ShowTestScreen extends Component {
             testName:'IMO Mock',
             fullMarks:'20',
             noOfQuestion:'5',
-            duration:'00:10:30',
+            duration:'00:01:30',
             testType:'GK',
             negativeMarkPerWrongQustion:'1',
             PositiveMarkPerRightQustion:'4',
